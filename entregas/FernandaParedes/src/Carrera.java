@@ -12,12 +12,20 @@ public class Carrera {
     public void jugar() {
         pista.mostrar(caballos);
         while (!hayGanador()) {
-            for (Caballo caballo : caballos) {
-                int avance = generador.generarAvance();
-                caballo.avanzar(avance);
-            }
+            ejecutarTurno();
             pista.mostrar(caballos);
         }
+        mostrarGanador();
+    }
+
+    private void ejecutarTurno() {
+        for (Caballo caballo : caballos) {
+            int avance = generador.generarAvance();
+            caballo.avanzar(avance);
+        }
+    }
+
+    private void mostrarGanador() {
         Caballo ganador = obtenerGanador();
         System.out.println("Ganó el caballo " + ganador.obtenerNumero());
     }
