@@ -10,7 +10,16 @@ public class Carrera {
     }
 
     public void jugar() {
-        // Se implementará en siguientes commits
+        mostrarPista();
+        while (!hayGanador()) {
+            for (Caballo caballo : caballos) {
+                int avance = generarAvance();
+                caballo.avanzar(avance);
+            }
+            mostrarPista();
+        }
+        Caballo ganador = obtenerGanador();
+        System.out.println("Ganó el caballo " + ganador.obtenerNumero());
     }
 
     private void inicializarCarrera() {
