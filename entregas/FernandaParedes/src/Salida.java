@@ -3,6 +3,7 @@ public class Salida {
     }
 
     public void mostrarGanador(Caballo caballo) {
-        System.out.println("Ganó el caballo " + caballo.obtenerNumero());
+        String mensaje = "Gano el caballo " + caballo.obtenerNumero();
+        System.out.println(mensaje);
     }
 }
