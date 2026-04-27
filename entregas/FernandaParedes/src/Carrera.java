@@ -12,7 +12,10 @@ public class Carrera {
     }
 
     private void inicializarCarrera() {
-        // Se implementará en siguientes commits
+        caballos = new Caballo[CANTIDAD_CABALLOS];
+        for (int i = 0; i < CANTIDAD_CABALLOS; i++) {
+            caballos[i] = new Caballo(i + 1);
+        }
     }
 
     private void mostrarPista() {
