@@ -2,7 +2,7 @@ public class Carrera {
     private Caballo[] caballos;
     private Pista pista;
     private Generador generador;
-    private static final int PISTA_FINAL = 40;
+    private Validador validador;
     private static final int CANTIDAD_CABALLOS = 2;
 
     public Carrera() {
@@ -11,7 +11,7 @@ public class Carrera {
 
     public void jugar() {
         pista.mostrar(caballos);
-        while (!hayGanador()) {
+        while (!validador.hayGanador(caballos)) {
             ejecutarTurno();
             pista.mostrar(caballos);
         }
@@ -26,34 +26,18 @@ public class Carrera {
     }
 
     private void mostrarGanador() {
-        Caballo ganador = obtenerGanador();
+        Caballo ganador = validador.obtenerGanador(caballos);
         System.out.println("Ganó el caballo " + ganador.obtenerNumero());
     }
 
     private void inicializarCarrera() {
         pista = new Pista();
         generador = new Generador();
+        validador = new Validador();
         caballos = new Caballo[CANTIDAD_CABALLOS];
         for (int i = 0; i < CANTIDAD_CABALLOS; i++) {
             caballos[i] = new Caballo(i + 1);
         }
     }
-
-    private Caballo obtenerGanador() {
-        for (Caballo caballo : caballos) {
-            if (caballo.gano(PISTA_FINAL)) {
-                return caballo;
-            }
-        }
-        return null;
-    }
-
-    private boolean hayGanador() {
-        for (Caballo caballo : caballos) {
-            if (caballo.gano(PISTA_FINAL)) {
-                return true;
-            }
-        }
-        return false;
-    }
 }
+
