@@ -4,7 +4,6 @@ public class Carrera {
     private Generador generador;
     private Validador validador;
     private Salida salida;
-    private static final int CANTIDAD_CABALLOS = 2;
 
     public Carrera() {
         inicializarCarrera();
@@ -36,8 +35,8 @@ public class Carrera {
         generador = new Generador();
         validador = new Validador();
         salida = new Salida();
-        caballos = new Caballo[CANTIDAD_CABALLOS];
-        for (int i = 0; i < CANTIDAD_CABALLOS; i++) {
+        caballos = new Caballo[Configuracion.CANTIDAD_CABALLOS];
+        for (int i = 0; i < Configuracion.CANTIDAD_CABALLOS; i++) {
             caballos[i] = new Caballo(i + 1);
         }
     }
