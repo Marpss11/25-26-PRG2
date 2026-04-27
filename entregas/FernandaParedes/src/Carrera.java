@@ -29,7 +29,11 @@ public class Carrera {
     }
 
     private Caballo obtenerGanador() {
-        // Se implementará en siguientes commits
+        for (Caballo caballo : caballos) {
+            if (caballo.gano(PISTA_FINAL)) {
+                return caballo;
+            }
+        }
         return null;
     }
 
