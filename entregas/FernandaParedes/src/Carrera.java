@@ -34,7 +34,11 @@ public class Carrera {
     }
 
     private boolean hayGanador() {
-        // Se implementará en siguientes commits
+        for (Caballo caballo : caballos) {
+            if (caballo.gano(PISTA_FINAL)) {
+                return true;
+            }
+        }
         return false;
     }
 }
