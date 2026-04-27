@@ -21,7 +21,16 @@ public class Carrera {
     }
 
     private void mostrarPista() {
-        // Se implementará en siguientes commits
+        System.out.println("----------------------------------------------");
+        for (Caballo caballo : caballos) {
+            StringBuilder linea = new StringBuilder();
+            for (int i = 0; i < caballo.obtenerPosicion(); i++) {
+                linea.append(" ");
+            }
+            linea.append(";-;'");
+            System.out.println(linea.toString());
+        }
+        System.out.println("----------------------------------------------");
     }
 
     private int generarAvance() {
