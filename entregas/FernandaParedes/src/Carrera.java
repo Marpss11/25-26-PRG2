@@ -1,5 +1,6 @@
 public class Carrera {
     private Caballo[] caballos;
+    private Pista pista;
     private static final int PISTA_FINAL = 40;
     private static final int CANTIDAD_CABALLOS = 2;
     private static final int AVANCE_MINIMO = 0;
@@ -10,49 +11,24 @@ public class Carrera {
     }
 
     public void jugar() {
-        mostrarPista();
+        pista.mostrar(caballos);
         while (!hayGanador()) {
             for (Caballo caballo : caballos) {
                 int avance = generarAvance();
                 caballo.avanzar(avance);
             }
-            mostrarPista();
+            pista.mostrar(caballos);
         }
         Caballo ganador = obtenerGanador();
         System.out.println("Ganó el caballo " + ganador.obtenerNumero());
     }
 
     private void inicializarCarrera() {
+        pista = new Pista();
         caballos = new Caballo[CANTIDAD_CABALLOS];
         for (int i = 0; i < CANTIDAD_CABALLOS; i++) {
             caballos[i] = new Caballo(i + 1);
         }
-    }
-
-    private void mostrarPista() {
-        System.out.println("----------------------------------------------");
-        for (Caballo caballo : caballos) {
-            StringBuilder linea = new StringBuilder();
-            for (int i = 0; i < caballo.obtenerPosicion(); i++) {
-                linea.append(" ");
-            }
-            linea.append(";-;'");
-            System.out.println(linea.toString());
-        }
-        System.out.println("----------------------------------------------");
-    }
-
-    private int generarAvance() {
-        return (int) (Math.random() * (AVANCE_MAXIMO - AVANCE_MINIMO + 1)) + AVANCE_MINIMO;
-    }
-
-    private Caballo obtenerGanador() {
-        for (Caballo caballo : caballos) {
-            if (caballo.gano(PISTA_FINAL)) {
-                return caballo;
-            }
-        }
-        return null;
     }
 
     private boolean hayGanador() {
