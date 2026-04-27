@@ -2,6 +2,8 @@ public class Carrera {
     private Caballo[] caballos;
     private static final int PISTA_FINAL = 40;
     private static final int CANTIDAD_CABALLOS = 2;
+    private static final int AVANCE_MINIMO = 0;
+    private static final int AVANCE_MAXIMO = 2;
 
     public Carrera() {
         inicializarCarrera();
@@ -23,8 +25,7 @@ public class Carrera {
     }
 
     private int generarAvance() {
-        // Se implementará en siguientes commits
-        return 0;
+        return (int) (Math.random() * (AVANCE_MAXIMO - AVANCE_MINIMO + 1)) + AVANCE_MINIMO;
     }
 
     private Caballo obtenerGanador() {
