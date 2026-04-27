@@ -3,6 +3,7 @@ public class Carrera {
     private Pista pista;
     private Generador generador;
     private Validador validador;
+    private Salida salida;
     private static final int CANTIDAD_CABALLOS = 2;
 
     public Carrera() {
@@ -27,13 +28,14 @@ public class Carrera {
 
     private void mostrarGanador() {
         Caballo ganador = validador.obtenerGanador(caballos);
-        System.out.println("Ganó el caballo " + ganador.obtenerNumero());
+        salida.mostrarGanador(ganador);
     }
 
     private void inicializarCarrera() {
         pista = new Pista();
         generador = new Generador();
         validador = new Validador();
+        salida = new Salida();
         caballos = new Caballo[CANTIDAD_CABALLOS];
         for (int i = 0; i < CANTIDAD_CABALLOS; i++) {
             caballos[i] = new Caballo(i + 1);
