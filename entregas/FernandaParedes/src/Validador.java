@@ -1,6 +1,4 @@
 public class Validador {
-    private static final int PISTA_FINAL = 40;
-
     public Validador() {
     }
 
@@ -23,6 +21,6 @@ public class Validador {
     }
 
     private boolean esGanador(Caballo caballo) {
-        return caballo.obtenerPosicion() >= PISTA_FINAL;
+        return caballo.obtenerPosicion() >= Configuracion.PISTA_FINAL;
     }
 }
