@@ -1,7 +1,4 @@
 public class Pista {
-    private static final String SEPARADOR = "----------------------------------------------";
-    private static final String CABALLO_REPRESENTACION = ";-;'";
-
     public Pista() {
     }
 
@@ -23,11 +20,11 @@ public class Pista {
         for (int i = 0; i < posicion; i++) {
             linea.append(" ");
         }
-        linea.append(CABALLO_REPRESENTACION);
+        linea.append(Configuracion.CABALLO_REPRESENTACION);
         return linea;
     }
 
     private void mostrarSeparador() {
-        System.out.println(SEPARADOR);
+        System.out.println(Configuracion.SEPARADOR);
     }
 }
